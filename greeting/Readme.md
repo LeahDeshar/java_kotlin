@@ -2,6 +2,11 @@
 
 This simple Android application allows users to enter their name, choose a greeting image, and display a personalized greeting message.
 
+## Screenshots
+
+![output1 Image](output1.png)
+![output2 Image](output2.png) 
+
 ## Features
 
 - **Text Input**: Users can enter their name using an `EditText` field.
