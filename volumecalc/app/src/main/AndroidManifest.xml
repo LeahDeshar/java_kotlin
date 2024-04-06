@@ -13,6 +13,18 @@
         android:theme="@style/Theme.Volumecalculator"
         tools:targetApi="31">
         <activity
+            android:name=".Cylinder"
+            android:exported="false" />
+        <activity
+            android:name=".Prism"
+            android:exported="false" />
+        <activity
+            android:name=".Cube"
+            android:exported="false" />
+        <activity
+            android:name=".Sphere"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
