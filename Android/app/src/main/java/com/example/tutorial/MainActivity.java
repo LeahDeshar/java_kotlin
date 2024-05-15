@@ -23,8 +23,9 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        TextView txt1 = findViewById(R.id.textView2);
-        txt1.setText(R.string.test1
-        );
+        TextView txt1 = findViewById(R.id.textView);
+
+        String getResult =getString(R.string.test1);
+        txt1.setText(getResult);
     }
 }
