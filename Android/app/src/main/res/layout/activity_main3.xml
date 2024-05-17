@@ -7,13 +7,4 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity3">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="255dp"
-        android:layout_height="68dp"
-        android:layout_marginStart="31dp"
-        android:layout_marginTop="246dp"
-        android:text="Hello page 3"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

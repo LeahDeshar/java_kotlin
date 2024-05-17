@@ -17,6 +17,13 @@
         android:textStyle="bold"
         android:layout_gravity="center_horizontal"
         android:paddingBottom="16dp"/>
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/user"
+        />
 <!--Name Row-->
     <LinearLayout
         android:layout_width="match_parent"
@@ -140,13 +147,27 @@
         android:text="Select Date"
         android:layout_centerInParent="true"/>
 
+    <Switch
+        android:id="@+id/switchButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Subscribe to newsletter"
+        android:layout_centerInParent="true"/>
     <!-- CheckBox for agreement -->
     <CheckBox
         android:id="@+id/checkBoxAgreement"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="I agree to the terms and conditions"/>
+    <Button
+        android:id="@+id/buttonWithIcon"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Button with Icon"
+        android:drawableLeft="@drawable/calender"
 
+
+        android:padding="16dp"/>
     <!-- Button to submit form -->
     <Button
         android:id="@+id/buttonSubmit"

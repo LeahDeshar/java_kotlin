@@ -5,8 +5,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.DatePicker;
 import android.widget.Spinner;
+import android.widget.Switch;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -59,6 +61,22 @@ public class MainActivity2 extends AppCompatActivity {
             public void onClick(View v) {
                 // Show DatePickerDialog when button is clicked
                 datePickerDialog.show();
+            }
+        });
+
+        Switch switchButton = findViewById(R.id.switchButton);
+
+        // Set an OnCheckedChangeListener to listen for changes in the Switch state
+        switchButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                // Handle the state change of the Switch
+                if (isChecked) {
+                    Toast.makeText(MainActivity2.this, "Turned On", Toast.LENGTH_SHORT).show();
+
+                } else {
+                    Toast.makeText(MainActivity2.this, "Turned Off", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
