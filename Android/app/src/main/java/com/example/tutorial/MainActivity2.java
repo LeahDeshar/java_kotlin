@@ -1,6 +1,8 @@
 package com.example.tutorial;
 
 import android.os.Bundle;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,5 +22,12 @@ public class MainActivity2 extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        Spinner spinner = findViewById(R.id.spinner);
+        String[] course = {"Java", "Python", "Kotlin", "C++", "C#"};
+
+        ArrayAdapter<String> adapter= new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, course);
+
+        spinner.setAdapter(adapter);
     }
 }
