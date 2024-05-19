@@ -48,6 +48,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        Button button4 = findViewById(R.id.button4);
+        button4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Intent to start the second activity
+                Intent intent = new Intent(MainActivity.this, CustomLV.class);
+                startActivity(intent);
+            }
+        });
 
 
 
