@@ -58,7 +58,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
+        Button button5 = findViewById(R.id.button5);
+        button5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Intent to start the second activity
+                Intent intent = new Intent(MainActivity.this, GridViewActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
 }
