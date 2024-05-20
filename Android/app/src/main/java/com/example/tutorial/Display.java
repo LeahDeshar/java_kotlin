@@ -1,6 +1,7 @@
 package com.example.tutorial;
 
 import android.os.Bundle;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -22,15 +23,33 @@ public class Display extends AppCompatActivity {
             return insets;
         });
 
+//
+//        String itemData = getIntent().getStringExtra("item_data");
+//
+//        // Find the TextView in the layout
+//        TextView textView = findViewById(R.id.textView2);
+//
+//        // Display the data in the TextView
+//        if (itemData != null) {
+//            textView.setText(itemData);
+//        }
 
-        String itemData = getIntent().getStringExtra("item_data");
 
-        // Find the TextView in the layout
-        TextView textView = findViewById(R.id.textView2);
+        // Retrieve the data from the Intent
+        String title = getIntent().getStringExtra("title");
+        String description = getIntent().getStringExtra("description");
+        int imageResourceId = getIntent().getIntExtra("imageResourceId", -1);
 
-        // Display the data in the TextView
-        if (itemData != null) {
-            textView.setText(itemData);
+        // Find the views in the layout
+        TextView titleTextView = findViewById(R.id.titleTextView);
+        TextView descriptionTextView = findViewById(R.id.descriptionTextView);
+        ImageView imageView = findViewById(R.id.imageView);
+
+        // Set the data to the views
+        titleTextView.setText(title);
+        descriptionTextView.setText(description);
+        if (imageResourceId != -1) {
+            imageView.setImageResource(imageResourceId);
         }
     }
 }

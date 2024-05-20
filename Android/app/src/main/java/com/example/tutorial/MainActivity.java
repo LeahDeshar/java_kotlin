@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Intent to start the second activity
-                Intent intent = new Intent(MainActivity.this, GridViewActivity.class);
+                Intent intent = new Intent(MainActivity.this, CustomGV.class);
                 startActivity(intent);
             }
         });
