@@ -13,20 +13,16 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 
-class Person{
-    public static String fname;
-    public static String lname;
-    public static String email;
 
-}
 public class IntentActivity extends AppCompatActivity {
 TextView fname,lname,email;
 EditText etfname,etlname,etemail;
 Button submit,next;
-ArrayList<Person> person = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,9 +51,7 @@ ArrayList<Person> person = new ArrayList<>();
                 String getlname = etlname.getText().toString();
                 String getemail = etemail.getText().toString();
 
-                Person.fname = getfname;
-                Person.lname = getlname;
-                Person.email = getemail;
+
 
                 fname.setText(getfname);
                 lname.setText(getlname);
@@ -65,16 +59,21 @@ ArrayList<Person> person = new ArrayList<>();
 
             }
         });
-
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(IntentActivity.this,IntentActivityII.class);
-                intent.putExtra("person", person);
+                // Create an Intent to navigate to the next activity
+                Intent intent = new Intent(IntentActivity.this, IntentActivityII.class);
+                // Pass data to the next activity using Intent extras
+                intent.putExtra("firstName", etfname.getText().toString());
+                intent.putExtra("lastName", etlname.getText().toString());
+                intent.putExtra("email", etemail.getText().toString());
+                // Start the next activity
                 startActivity(intent);
-
             }
         });
+
+
 
     }
 }
