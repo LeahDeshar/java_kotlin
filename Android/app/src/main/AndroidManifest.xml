@@ -13,6 +13,12 @@
         android:theme="@style/Theme.Tutorial"
         tools:targetApi="31">
         <activity
+            android:name=".IntentActivityII"
+            android:exported="false" />
+        <activity
+            android:name=".IntentActivity"
+            android:exported="false" />
+        <activity
             android:name=".Recycler_activity"
             android:exported="false" />
         <activity
