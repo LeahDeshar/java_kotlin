@@ -46,11 +46,10 @@ public class IntentActivityII extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Create an Intent to navigate to the next activity
-                Intent intent = new Intent(IntentActivityII.this, IntentActivityII.class);
+                Intent intent = new Intent(IntentActivityII.this, IntentActivity.class);
                 // Pass data to the next activity using Intent extras
-                intent.putExtra("firstName", etfname.getText().toString());
-                intent.putExtra("lastName", etlname.getText().toString());
-                intent.putExtra("email", etemail.getText().toString());
+                intent.putExtra("message", "Received successfully" );
+
                 // Start the next activity
                 startActivity(intent);
             }

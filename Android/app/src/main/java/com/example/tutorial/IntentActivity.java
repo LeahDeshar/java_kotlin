@@ -19,7 +19,7 @@ import java.util.ArrayList;
 
 
 public class IntentActivity extends AppCompatActivity {
-TextView fname,lname,email;
+TextView fname,lname,email,messageDis;
 EditText etfname,etlname,etemail;
 Button submit,next;
 
@@ -73,6 +73,13 @@ Button submit,next;
             }
         });
 
+        Intent intent = getIntent();
+        String message = intent.getStringExtra("message");
+
+        if(message != null){
+            messageDis = findViewById(R.id.message);
+            messageDis.setText(message);
+        }
 
 
     }
