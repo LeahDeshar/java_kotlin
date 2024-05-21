@@ -78,7 +78,6 @@
   <component name="ChangeListManager">
     <list default="true" id="d9e195b1-33d6-444d-b4f5-9b3ccf53e1af" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/tutorial/IntentActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/tutorial/IntentActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/tutorial/IntentActivityII.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/tutorial/IntentActivityII.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_intent_ii.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_intent_ii.xml" afterDir="false" />
     </list>

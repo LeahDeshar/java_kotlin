@@ -38,6 +38,15 @@
         app:layout_constraintStart_toStartOf="@+id/lname"
         app:layout_constraintTop_toBottomOf="@+id/lname" />
 
-    
+
+    <Button
+        android:id="@+id/next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="66dp"
+        android:layout_marginTop="76dp"
+        android:text="Next page"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/email" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
