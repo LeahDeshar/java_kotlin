@@ -13,10 +13,20 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.util.ArrayList;
+
+
+class Person{
+    public static String fname;
+    public static String lname;
+    public static String email;
+
+}
 public class IntentActivity extends AppCompatActivity {
 TextView fname,lname,email;
 EditText etfname,etlname,etemail;
-Button submit;
+Button submit,next;
+ArrayList<Person> person = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +42,11 @@ Button submit;
         etlname = findViewById(R.id.editTextLName);
         etemail = findViewById(R.id.editTextEmail);
         submit = findViewById(R.id.button);
+        next = findViewById(R.id.next);
+
+        fname = findViewById(R.id.fname);
+        lname = findViewById(R.id.lname);
+        email = findViewById(R.id.email);
 
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -40,23 +55,26 @@ Button submit;
                 String getlname = etlname.getText().toString();
                 String getemail = etemail.getText().toString();
 
+                Person.fname = getfname;
+                Person.lname = getlname;
+                Person.email = getemail;
+
                 fname.setText(getfname);
                 lname.setText(getlname);
                 email.setText(getemail);
 
-
-
-
-
-
-//                Intent intent = new Intent(IntentActivity.this,IntentActivityII.class);
-//                intent.putExtra("fname",fname);
-//                intent.putExtra("lname",lname);
-//                intent.putExtra("email",email);
-//                startActivity(intent);
             }
         });
 
+        next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(IntentActivity.this,IntentActivityII.class);
+                intent.putExtra("person", person);
+                startActivity(intent);
+
+            }
+        });
 
     }
 }
