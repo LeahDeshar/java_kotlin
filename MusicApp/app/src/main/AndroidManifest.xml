@@ -25,9 +25,7 @@
         <service
             android:name=".MyCustomService"
             />
-            <intent-filter>
-                <action android:name="android.media.browse.MediaBrowserService" />
-            </intent-filter>
+
     </application>
 
 </manifest>
