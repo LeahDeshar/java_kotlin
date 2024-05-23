@@ -66,9 +66,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="532dp"
             android:layout_marginEnd="152dp"
-            android:backgroundTint="@color/cardview_light_background"
             android:text="Solve!"
-            android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
