@@ -56,6 +56,23 @@ public class MyEquation extends BaseObservable {
         int c = Integer.parseInt(getC());
 
 
+        double d = b*b - 4*a*c;
+
+        double x1,x2;
+
+        if(d>0) {
+            x1 = (-b + Math.sqrt(d)) / (2 * a);
+            x2 = (-b - Math.sqrt(d)) / (2 * a);
+            binding.textView.setText("X1: " + x1 + "\nX2: " + x2);
+        }else if(d==0) {
+            x1 = -b / (2 * a);
+            binding.textView.setText("X: " + x1);
+        }
+        else {
+            binding.textView.setText("No real roots");
+        }
+
+
     }
 
 }
