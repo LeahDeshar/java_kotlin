@@ -7,8 +7,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.databinding.DataBindingUtil;
+
+import com.example.tutorial.databinding.ActivityLayoutBindingBinding;
 
 public class LayoutBindingActivity extends AppCompatActivity {
+    private ActivityLayoutBindingBinding activityLayoutBindingBinding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,5 +24,10 @@ public class LayoutBindingActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        Person p1 = new Person("John Doe", "john@gmail.com");
+        activityLayoutBindingBinding = DataBindingUtil.setContentView(
+                this,R.layout.activity_layout_binding);
+        activityLayoutBindingBinding.setPerson(p1);
     }
 }
