@@ -29,5 +29,9 @@ public class LayoutBindingActivity extends AppCompatActivity {
         activityLayoutBindingBinding = DataBindingUtil.setContentView(
                 this,R.layout.activity_layout_binding);
         activityLayoutBindingBinding.setPerson(p1);
+
+
+        MyClickHandler clickHandlers = new MyClickHandler(this);
+        activityLayoutBindingBinding.setClickHandler(clickHandlers);
     }
 }
