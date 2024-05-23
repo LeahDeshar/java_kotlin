@@ -1,5 +1,7 @@
 package com.example.quadraticapp;
 
+import android.view.View;
+
 import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
 
@@ -48,6 +50,12 @@ public class MyEquation extends BaseObservable {
     }
 
 
-    public void solveEquatio()
+    public void solveEquation(View view){
+        int a = Integer.parseInt(getA());
+        int b = Integer.parseInt(getB());
+        int c = Integer.parseInt(getC());
+
+
+    }
 
 }
