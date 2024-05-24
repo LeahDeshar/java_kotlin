@@ -6,7 +6,7 @@
 <data>
     <variable
         name="clickHandler"
-        type="com.example.contactmanagerapp." />
+        type="com.example.contactmanagerapp.MainActivityClickHandler" />
         
 </data>
 
@@ -29,6 +29,7 @@
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab"
+            android:onClick="@{clickHandler::onFABClicked}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
