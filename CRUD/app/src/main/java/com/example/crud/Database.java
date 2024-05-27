@@ -14,7 +14,7 @@ public class Database  extends SQLiteOpenHelper {
     public static final int DB_VERSION = 1;
 
 
-    public Database(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
+    public Database(@Nullable Context context) {
         super(context, DB_NAME, null, DB_VERSION);
     }
 
