@@ -9,10 +9,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.List;
 
 public class FetchDataActivity extends AppCompatActivity {
-    Database database;
     TextView tvData;
+
+    Database database;
+    RecyclerView recyclerView;
+    UserAdapter userAdapter;
+    List<User> userList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,16 +32,36 @@ public class FetchDataActivity extends AppCompatActivity {
             return insets;
         });
 
-        tvData = findViewById(R.id.tvData);
+//        tvData = findViewById(R.id.tvData);
+//        database = new Database(FetchDataActivity.this);
+//        tvData.setText("");
+//
+//        Cursor cursor = database.getAllData();
+//        while(cursor.moveToNext()){
+//            tvData.append("ID: "+cursor.getString(0)+"\n");
+//            tvData.append("Name: "+cursor.getString(1)+"\n");
+//            tvData.append("Email: "+cursor.getString(2)+"\n");
+//            tvData.append("Password: "+cursor.getString(3)+"\n\n");
+//        }
+
+
+        recyclerView = findViewById(R.id.recyclerView);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
         database = new Database(FetchDataActivity.this);
-        tvData.setText("");
+        userList = new ArrayList<>();
 
         Cursor cursor = database.getAllData();
         while(cursor.moveToNext()){
-            tvData.append("ID: "+cursor.getString(0)+"\n");
-            tvData.append("Name: "+cursor.getString(1)+"\n");
-            tvData.append("Email: "+cursor.getString(2)+"\n");
-            tvData.append("Password: "+cursor.getString(3)+"\n\n");
+            int id = cursor.getInt(0);
+            String name = cursor.getString(1);
+            String email = cursor.getString(2);
+            String password = cursor.getString(3);
+            userList.add(new User(id, name, email, password));
         }
+        cursor.close();
+
+        userAdapter = new UserAdapter(userList);
+        recyclerView.setAdapter(userAdapter);
     }
 }
