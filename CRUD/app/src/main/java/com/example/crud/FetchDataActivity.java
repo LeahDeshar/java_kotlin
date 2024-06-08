@@ -2,6 +2,7 @@ package com.example.crud;
 
 import android.database.Cursor;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -53,15 +54,20 @@ public class FetchDataActivity extends AppCompatActivity {
         database = new Database(FetchDataActivity.this);
         userList = new ArrayList<>();
 
-        Cursor cursor = database.getAllData();
-        while(cursor.moveToNext()){
-            int id = cursor.getInt(0);
-            String name = cursor.getString(1);
-            String email = cursor.getString(2);
-            String password = cursor.getString(3);
-            userList.add(new User(id, name, email, password));
+        try {
+            Cursor cursor = database.getAllData();
+            while(cursor.moveToNext()){
+                tvData.append("ID: "+cursor.getString(0)+"\n");
+                tvData.append("Name: "+cursor.getString(1)+"\n");
+                tvData.append("Email: "+cursor.getString(2)+"\n");
+                tvData.append("Password: "+cursor.getString(3)+"\n\n");
+            }
+            cursor.close();
+
+        } catch (Exception e) {
+            // Log the exception to the console
+            Log.e("FetchDataActivity", "Error fetching data", e);
         }
-        cursor.close();
 
         userAdapter = new UserAdapter(userList);
         recyclerView.setAdapter(userAdapter);
