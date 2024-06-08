@@ -9,7 +9,7 @@ import androidx.room.RoomDatabase;
 @Database(entities = {Note.class}, version = 1)
 public abstract class NoteDatabase extends RoomDatabase {
 //    linking DAO and DB
-    public abstract NoteDAO noteDAO();
+    public abstract NoteDAO getNoteDAO();
 
 //    Create the instance of db using Singleton pattern
     private static NoteDatabase instance;

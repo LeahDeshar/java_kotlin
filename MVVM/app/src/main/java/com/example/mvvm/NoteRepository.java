@@ -18,7 +18,7 @@ public class NoteRepository {
     public NoteRepository( Application application) {
         NoteDatabase noteDatabase = NoteDatabase.getInstance(application);
 //        this.noteDao = noteDao;
-        this.noteDao = noteDatabase.getNote();
+        this.noteDao = noteDatabase.getNoteDAO();
 
          executor = Executors.newSingleThreadExecutor();
          handler = new Handler(Looper.getMainLooper());
