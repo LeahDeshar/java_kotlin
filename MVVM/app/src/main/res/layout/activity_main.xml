@@ -3,7 +3,11 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
-
+<data>
+    <variable
+        name="clickHandler"
+        type="com.example.mvvm.MainActivityClickHandler"/>
+</data>
     <androidx.constraintlayout.widget.ConstraintLayout
 
         android:id="@+id/main"
@@ -30,6 +34,7 @@
             android:layout_marginBottom="16dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            android:onClick="@{clickHandler::onFabClicked}"
             app:layout_constraintStart_toEndOf="@+id/recycler_view" />
 
 

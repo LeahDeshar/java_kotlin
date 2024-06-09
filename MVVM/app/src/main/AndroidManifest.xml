@@ -13,6 +13,12 @@
         android:theme="@style/Theme.MVVM"
         tools:targetApi="31">
         <activity
+            android:name=".AddNewNoteActivity"
+            android:exported="false" />
+        <activity
+            android:name=".note_list_item"
+            android:exported="false" />
+        <activity
             android:name=".contact_list_item"
             android:exported="false"
             android:theme="@style/Theme.MVVM" />
