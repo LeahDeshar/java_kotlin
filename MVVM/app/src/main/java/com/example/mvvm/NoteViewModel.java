@@ -16,7 +16,7 @@ public class NoteViewModel extends ViewModel {
     private LiveData<List<Note>> allNotes;
 
     public NoteViewModel(Application application) {
-        noteRepository = new NoteRepository(application);
+        this.noteRepository = new NoteRepository(application);
     }
 
 //    public NoteViewModel(Application application) {
