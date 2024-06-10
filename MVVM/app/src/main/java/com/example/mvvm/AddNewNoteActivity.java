@@ -29,12 +29,14 @@ public class AddNewNoteActivity extends AppCompatActivity {
             return insets;
         });
 
-        notes = new Note(
-                getIntent().getStringExtra("title"),
-                getIntent().getStringExtra("content")
-        );
-        addNewNoteBinding = DataBindingUtil.setContentView(this,R.layout.activity_add_new_note);
 
+        addNewNoteBinding = DataBindingUtil.setContentView(this,R.layout.activity_add_new_note);
+        notes = new Note(
+
+                "",""
+
+        );
+        addNewNoteBinding.setNote(notes);
 
         NoteViewModel noteViewModel = new ViewModelProvider(this).get(NoteViewModel.class);
         clickHandler = new AddNewNoteClickHandler(notes,this,noteViewModel);
