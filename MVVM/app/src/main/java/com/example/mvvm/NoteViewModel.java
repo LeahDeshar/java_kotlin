@@ -3,6 +3,8 @@ package com.example.mvvm;
 import android.app.Application;
 
 
+import androidx.annotation.NonNull;
+import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModel;
 
@@ -10,19 +12,19 @@ import java.util.List;
 //import androidx.lifecycle.AndroidViewModel;
 
 
-public class NoteViewModel extends ViewModel {
+public class NoteViewModel extends AndroidViewModel {
 
     private NoteRepository noteRepository;
     private LiveData<List<Note>> allNotes;
 
-    public NoteViewModel(Application application) {
-        this.noteRepository = new NoteRepository(application);
-    }
-
 //    public NoteViewModel(Application application) {
-//        super(application);
 //        this.noteRepository = new NoteRepository(application);
 //    }
+
+    public NoteViewModel(@NonNull Application application) {
+        super(application);
+        this.noteRepository = new NoteRepository(application);
+    }
 
       public LiveData<List<Note>> getAllNotes() {
         allNotes = noteRepository.getAllNotes();

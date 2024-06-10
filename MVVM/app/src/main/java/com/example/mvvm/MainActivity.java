@@ -54,32 +54,41 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
 
 //        adapter
-        noteAdapter = new MyAdapter(notes);
 
         noteDatabase = NoteDatabase.getInstance(this);
 
         NoteViewModel noteViewModel = new ViewModelProvider(this).get(NoteViewModel.class);
 
 //        Inserting a new Note
-        noteViewModel.insert(new Note(1,"Title 1", "Description 1"));
-        noteViewModel.insert(new Note(2,"Title 2", "Description 2"));
-        noteViewModel.insert(new Note(3,"Title 3", "Description 3"));
-        noteViewModel.insert(new Note(4,"Title 4", "Description 4"));
-        noteViewModel.insert(new Note(5,"Title 5", "Description 5"));
+//        noteViewModel.insert(new Note("Title 1", "Description 1"));
+//        noteViewModel.insert(new Note("Title 2", "Description 2"));
+//        noteViewModel.insert(new Note("Title 3", "Description 3"));
+//        noteViewModel.insert(new Note("Title 4", "Description 4"));
+//        noteViewModel.insert(new Note("Title 5", "Description 5"));
 
 
 
         noteViewModel.getAllNotes().observe(this, new Observer<List<Note>>() {
             @Override
-            public void onChanged(List<Note> notes) {
+            public void onChanged(List<Note> newNotes) {
+                notes.clear();
 
+                // Add all new notes to the list
+                notes.addAll(newNotes);
+
+                // Notify the adapter
+                noteAdapter.notifyDataSetChanged();
 //                loop
-                for (Note note : notes) {
-                    Log.v("TAGY", note.getTitle());
-                }
+//                for (Note note : notes) {
+//                    Log.v("TAGY", note.getTitle());
+//                    notes.add(note);
+//                }
+//                noteAdapter.notifyDataSetChanged();
 //                noteAdapter.setNotesList((ArrayList<Note>) notes);
             }
         });
+        noteAdapter = new MyAdapter(notes);
+
         recyclerView.setAdapter(noteAdapter);
     }
 }

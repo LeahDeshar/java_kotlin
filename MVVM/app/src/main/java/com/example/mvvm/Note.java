@@ -18,8 +18,7 @@ public class Note {
     @ColumnInfo(name = "content")
     private String content;
 
-    public Note(int id, String title, String content) {
-        this.id = id;
+    public Note( String title, String content) {
         this.title = title;
         this.content = content;
     }
