@@ -19,5 +19,6 @@ public class MainActivityClickHandler {
 
     public void onFabClicked(View view) {
         Intent i =  new Intent(view.getContext(), AddNewNoteActivity.class);
+        context.startActivity(i);
     }
 }
