@@ -1,6 +1,8 @@
 package com.example.assignment.Hello;
 
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,5 +24,29 @@ public class HelloWorldActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        TextView titleTextView = findViewById(R.id.titleTextView);
+        String title = getIntent().getStringExtra("title");
+        titleTextView.setText(title);
+
+//        int position = getIntent().getIntExtra("position", 0);
+
+        // Find the TextViews in the layout
+        TextView expTitle = findViewById(R.id.title);
+        TextView notesTextView = findViewById(R.id.notesTextView);
+
+        // Get the title and notes from string resources arrays
+        String[] titlesArray = getResources().getStringArray(R.array.titles_array);
+        String[] expArray = getResources().getStringArray(R.array.exp_array);
+
+        StringBuilder allTitlesAndExplanations = new StringBuilder();
+
+        for (int i = 0; i < titlesArray.length && i < expArray.length; i++) {
+            allTitlesAndExplanations.append(titlesArray[i]).append("\n\n");
+            allTitlesAndExplanations.append(expArray[i]).append("\n\n");
+        }
+
+        expTitle.setText(allTitlesAndExplanations.toString());
+        notesTextView.setText("");
     }
 }

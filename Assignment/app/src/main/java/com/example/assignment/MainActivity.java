@@ -38,19 +38,24 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
                 String title = titles[position];
+                Intent intent;
                 switch (title) {
                     case "Hello World":
-                        startActivity(new Intent(MainActivity.this, HelloWorldActivity.class));
+                         intent = new Intent(MainActivity.this, HelloWorldActivity.class);
+                        intent.putExtra("title", title);
+                        startActivity(intent);
                         break;
                     case "Assignment:1":
-                        startActivity(new Intent(MainActivity.this, AssignmentDetailsActivity.class));
+                         intent = new Intent(MainActivity.this, AssignmentDetailsActivity.class);
+                        intent.putExtra("title", title);
+                        startActivity(intent);
                         break;
                     default:
                         // Handle default case
                         break;
                 }
             }
-            
+
         });
     }
 }
