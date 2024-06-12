@@ -18,15 +18,11 @@ public class AddNewNoteClickHandler {
     }
 
     public void onSubmitBtnClicked(View view) {
-        Log.d("AddNewNoteClickHandler", "Title: " + note.getTitle());
-        Log.d("AddNewNoteClickHandler", "Content: " + note.getContent());
+
         if(note.getTitle() == null || note.getContent() == null) {
             Toast.makeText(context, "Fields Cannot Be Empty", Toast.LENGTH_SHORT).show();
         }else {
             Intent i = new Intent(context, MainActivity.class);
-//            i.putExtra("Title", note.getTitle());
-//            i.putExtra("Content", note.getContent());
-
             Note note1 = new Note(
                     note.getTitle(),
                     note.getContent()
