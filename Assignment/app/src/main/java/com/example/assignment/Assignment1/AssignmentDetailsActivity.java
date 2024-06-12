@@ -1,6 +1,9 @@
 package com.example.assignment.Assignment1;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -26,5 +29,38 @@ public class AssignmentDetailsActivity extends AppCompatActivity {
         TextView titleTextView = findViewById(R.id.titleTextView);
         String title = getIntent().getStringExtra("title");
         titleTextView.setText(title);
+
+
+        Button assignOneButton = findViewById(R.id.assignOneButton);
+        Button assignTwoButton = findViewById(R.id.assignTwoButton);
+
+
+        assignOneButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Get the title from the TextView associated with the button
+                TextView assignOneTextView = findViewById(R.id.assignOne);
+                String title = assignOneTextView.getText().toString();
+
+                // Start the next activity with the title as an intent extra
+                Intent intent = new Intent(AssignmentDetailsActivity.this, DemoOneActivity.class);
+                intent.putExtra("title", title);
+                startActivity(intent);
+            }
+        });
+
+        assignTwoButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Get the title from the TextView associated with the button
+                TextView assignTwoTextView = findViewById(R.id.assignTwo);
+                String title = assignTwoTextView.getText().toString();
+
+                // Start the next activity with the title as an intent extra
+                Intent intent = new Intent(AssignmentDetailsActivity.this, NextActivity.class);
+                intent.putExtra("title", title);
+                startActivity(intent);
+            }
+        });
     }
 }

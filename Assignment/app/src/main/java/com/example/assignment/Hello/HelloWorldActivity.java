@@ -29,13 +29,12 @@ public class HelloWorldActivity extends AppCompatActivity {
         String title = getIntent().getStringExtra("title");
         titleTextView.setText(title);
 
-//        int position = getIntent().getIntExtra("position", 0);
 
-        // Find the TextViews in the layout
+
         TextView expTitle = findViewById(R.id.title);
         TextView notesTextView = findViewById(R.id.notesTextView);
 
-        // Get the title and notes from string resources arrays
+
         String[] titlesArray = getResources().getStringArray(R.array.titles_array);
         String[] expArray = getResources().getStringArray(R.array.exp_array);
 
