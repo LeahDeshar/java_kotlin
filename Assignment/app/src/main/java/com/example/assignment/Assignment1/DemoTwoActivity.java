@@ -1,6 +1,7 @@
 package com.example.assignment.Assignment1;
 
 import android.os.Bundle;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,5 +23,9 @@ public class DemoTwoActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        TextView titleTextView = findViewById(R.id.titleTextView);
+        String title = getIntent().getStringExtra("title");
+        titleTextView.setText(title);
     }
 }

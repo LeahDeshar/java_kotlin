@@ -57,7 +57,7 @@ public class AssignmentDetailsActivity extends AppCompatActivity {
                 String title = assignTwoTextView.getText().toString();
 
                 // Start the next activity with the title as an intent extra
-                Intent intent = new Intent(AssignmentDetailsActivity.this, NextActivity.class);
+                Intent intent = new Intent(AssignmentDetailsActivity.this, DemoTwoActivity.class);
                 intent.putExtra("title", title);
                 startActivity(intent);
             }

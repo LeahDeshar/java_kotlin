@@ -1,6 +1,9 @@
 package com.example.assignment.Assignment1;
 
 import android.os.Bundle;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,6 +24,16 @@ public class DemoOneActivity extends AppCompatActivity {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
+        });
+
+        TextView titleTextView = findViewById(R.id.titleTextView);
+        String title = getIntent().getStringExtra("title");
+        titleTextView.setText(title);
+        
+        Button adopt = findViewById(R.id.adoptButton);
+        adopt.setOnClickListener(v -> {
+//            Toast message
+            Toast.makeText(this, "Whoo hoo ,Adopted", Toast.LENGTH_SHORT).show();
         });
     }
 }
