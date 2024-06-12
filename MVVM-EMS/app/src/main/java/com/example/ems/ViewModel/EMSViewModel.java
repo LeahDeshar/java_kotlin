@@ -16,9 +16,7 @@ public class EMSViewModel extends AndroidViewModel {
     private EMSRepository emsRepository;
     private LiveData<List<EmployeeEntity>> allEmployee;
 
-//    public NoteViewModel(Application application) {
-//        this.noteRepository = new NoteRepository(application);
-//    }
+
 
     public EMSViewModel(@NonNull Application application) {
         super(application);
