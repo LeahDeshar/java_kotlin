@@ -2,11 +2,14 @@ package com.example.ems.Model;
 
 import android.content.Context;
 
+import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
+
+@Database(entities = {EmployeeEntity.class}, version = 1)
 public abstract class EMSDatabase extends RoomDatabase{
-    public abstract EmployeeDAO employeeDAO();
+    public abstract EmployeeDAO getEmployeeDAO();
 
     private static volatile EMSDatabase INSTANCE;
 
