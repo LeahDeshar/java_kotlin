@@ -35,7 +35,8 @@ public class MainActivity2 extends AppCompatActivity {
         Spinner spinner = findViewById(R.id.spinner);
         String[] course = {"Java", "Python", "Kotlin", "C++", "C#"};
 
-        ArrayAdapter<String> adapter= new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, course);
+        ArrayAdapter<String> adapter= new ArrayAdapter<>(this,
+                android.R.layout.simple_spinner_item, course);
 
         spinner.setAdapter(adapter);
 
@@ -52,7 +53,9 @@ public class MainActivity2 extends AppCompatActivity {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                         // Do something with the selected date
-                        Toast.makeText(MainActivity2.this, "Selected Date: " + dayOfMonth + "/" + (month + 1) + "/" + year, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity2.this,
+                                "Selected Date: " + dayOfMonth + "/" + (month + 1) + "/" + year,
+                                Toast.LENGTH_SHORT).show();
                     }
                 }, year, month, dayOfMonth);
 
