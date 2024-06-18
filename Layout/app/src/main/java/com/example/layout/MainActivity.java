@@ -3,6 +3,7 @@ package com.example.layout;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -29,11 +30,28 @@ public class MainActivity extends AppCompatActivity {
         TextView resultTxt;
         EditText nameEt,phnEt;
         Button btn,detailBtn;
+        CheckBox checkBox;
 
 
         btn = findViewById(R.id.button);
         detailBtn = findViewById(R.id.detailBtn);
         resultTxt = findViewById(R.id.result);
+        checkBox = findViewById(R.id.checkBox);
+
+
+        boolean isCheckedOpt = false;
+        checkBox.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if(isChecked){
+                isCheckedOpt = true;
+
+
+
+
+            }else{
+            }
+        });
+
+
 
         nameEt = findViewById(R.id.editName);
         phnEt = findViewById(R.id.editPhoneNumber);
