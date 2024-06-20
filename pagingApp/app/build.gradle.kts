@@ -1,5 +1,6 @@
 plugins {
     alias(libs.plugins.androidApplication)
+//    alias(libs.plugins.hilt)
 //    alias(libs.plugins.hiltAndroid)
 //    id 'com.google.dagger.hilt.android' version '2.51.1'
 }
