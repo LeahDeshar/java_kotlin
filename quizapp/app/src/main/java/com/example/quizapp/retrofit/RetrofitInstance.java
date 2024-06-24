@@ -16,8 +16,5 @@ public class RetrofitInstance {
                 .build();
     }
 
-    /*create and return a configured QuestionAPI instance*/
-//    public QuestionAPI getQuestionAPI() {
-//        return getRetrofitInstance().create(QuestionAPI.class);
-//    }
+
 }
