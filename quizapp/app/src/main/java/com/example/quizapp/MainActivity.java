@@ -40,53 +40,53 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
-        quizViewModel = new ViewModelProvider(this).get(QuizViewModel.class);
-
-        quizViewModel.getQuestionListLiveData().observe(this, questions -> {
-            if (questions != null) {
-                questionList = questions;
-                displayFirstQuestion();
-            } else {
-                binding.txtQuestion.setText("No questions found");
-            }
-        });
-
 //        binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+//        quizViewModel = new ViewModelProvider(this).get(QuizViewModel.class);
+//
+//        quizViewModel.getQuestionListLiveData().observe(this, questions -> {
+//            if (questions != null) {
+//                questionList = questions;
+//                displayFirstQuestion();
+//            } else {
+//                binding.txtQuestion.setText("No questions found");
+//            }
+//        });
+
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         result =0;
         totalQuestions = 0;
 
 
         quizViewModel = new ViewModelProvider(this).get(QuizViewModel.class);
 
-//        DisplayFirstQuestion();
+        DisplayFirstQuestion();
     }
-//    public void DisplayFirstQuestion(){
-//        quizViewModel.getQuestionListLiveData().observe(this, new Observer<QuestionList>() {
-//            @Override
-//            public void onChanged(QuestionList questions) {
-//
-//                if (questions != null) {
-//                    questionList = questions;
-//                    binding.txtQuestion.setText("Question 1: " + questions.get(0).getQuestion());
-//                    binding.radioButton1.setText(questions.get(0).getOption1());
-//                    binding.radioButton2.setText(questions.get(0).getOption2());
-//                    binding.radioButton3.setText(questions.get(0).getOption3());
-//                    binding.radioButton4.setText(questions.get(0).getOption4());
-//                } else {
-//                    binding.txtQuestion.setText("No questions found");
-//
-//                }
-//            }
-//        });
+    public void DisplayFirstQuestion(){
+        quizViewModel.getQuestionListLiveData().observe(this, new Observer<QuestionList>() {
+            @Override
+            public void onChanged(QuestionList questions) {
+
+                if (questions != null) {
+                    questionList = questions;
+                    binding.txtQuestion.setText("Question 1: " + questions.get(0).getQuestion());
+                    binding.radioButton1.setText(questions.get(0).getOption1());
+                    binding.radioButton2.setText(questions.get(0).getOption2());
+                    binding.radioButton3.setText(questions.get(0).getOption3());
+                    binding.radioButton4.setText(questions.get(0).getOption4());
+                } else {
+                    binding.txtQuestion.setText("No questions found");
+
+                }
+            }
+        });
+    }
+//    private void displayFirstQuestion() {
+//        if (questionList != null && !questionList.isEmpty()) {
+//            binding.txtQuestion.setText("Question 1: " + questionList.get(0).getQuestion());
+//            binding.radioButton1.setText(questionList.get(0).getOption1());
+//            binding.radioButton2.setText(questionList.get(0).getOption2());
+//            binding.radioButton3.setText(questionList.get(0).getOption3());
+//            binding.radioButton4.setText(questionList.get(0).getOption4());
+//        }
 //    }
-    private void displayFirstQuestion() {
-        if (questionList != null && !questionList.isEmpty()) {
-            binding.txtQuestion.setText("Question 1: " + questionList.get(0).getQuestion());
-            binding.radioButton1.setText(questionList.get(0).getOption1());
-            binding.radioButton2.setText(questionList.get(0).getOption2());
-            binding.radioButton3.setText(questionList.get(0).getOption3());
-            binding.radioButton4.setText(questionList.get(0).getOption4());
-        }
-    }
 }
