@@ -1,7 +1,10 @@
 const express = require("express");
+const cors = require("cors");
+const morgan = require("morgan");
 const mysql = require("mysql2"); // mysql2 driver for MySQL/MariaDB
 
 const app = express();
+
 const port = 3000;
 
 // MySQL database connection config
@@ -11,6 +14,9 @@ const dbConfig = {
   password: "password",
   database: "my_quiz_db",
 };
+// allow cors and morgan
+app.use(cors());
+app.use(morgan("dev"));
 
 // Create a MySQL pool
 const pool = mysql.createPool(dbConfig);
