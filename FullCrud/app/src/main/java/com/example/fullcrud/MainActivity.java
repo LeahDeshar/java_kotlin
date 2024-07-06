@@ -55,9 +55,9 @@ public class MainActivity extends AppCompatActivity {
                 List<Passenger> passengers = response.body();
                 StringBuilder formattedResult = new StringBuilder();
                 for (Passenger passenger : passengers) {
-                    formattedResult.append("ID: ").append(passenger.getId())
-                            .append(", Name: ").append(passenger.getName())
-                            .append(", Age: ").append(passenger.getAge())
+                    formattedResult.append("ID: ").append(passenger.getPassenger_id())
+                            .append(", Name: ").append(passenger.getPassenger_name())
+                            .append(", Info: ").append(passenger.getContact_info())
                             .append("\n");
                 }
                 textView.setText(formattedResult.toString());
