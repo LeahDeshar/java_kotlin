@@ -2,6 +2,7 @@ package com.example.fullcrud;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -10,14 +11,17 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.example.fullcrud.model.Passenger;
+import com.example.fullcrud.service.ApiService;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
+
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
     private TextView textView;
@@ -31,58 +35,40 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        new FetchDataTask().execute("http://localhost:3000/passenger");
-    }
-    private class FetchDataTask extends AsyncTask<String, Void, String> {
+        textView = findViewById(R.id.textView);
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("http://192.168.1.4:3000")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
 
-        @Override
-        protected String doInBackground(String... urls) {
-            StringBuilder result = new StringBuilder();
-            try {
-                URL url = new URL(urls[0]);
-                HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
-                try {
-                    BufferedReader reader = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
-                    String line;
-                    while ((line = reader.readLine()) != null) {
-                        result.append(line);
-                    }
-                } finally {
-                    urlConnection.disconnect();
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-                return null;
-            }
-            return result.toString();
-        }
+        ApiService apiService = retrofit.create(ApiService.class);
 
-        @Override
-        protected void onPostExecute(String result) {
-            super.onPostExecute(result);
-            if (result != null) {
-                try {
-                    JSONArray jsonArray = new JSONArray(result);
-                    StringBuilder formattedResult = new StringBuilder();
-                    for (int i = 0; i < jsonArray.length(); i++) {
-                        JSONObject jsonObject = jsonArray.getJSONObject(i);
-                        // Assuming your JSON object has 'id', 'name', and 'age' fields
-                        int id = jsonObject.getInt("id");
-                        String name = jsonObject.getString("name");
-                        int age = jsonObject.getInt("age");
-                        formattedResult.append("ID: ").append(id)
-                                .append(", Name: ").append(name)
-                                .append(", Age: ").append(age)
-                                .append("\n");
-                    }
-                    textView.setText(formattedResult.toString());
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                    textView.setText("Error parsing JSON data.");
+        Call<List<Passenger>> call = apiService.getPassengers();
+        call.enqueue(new Callback<List<Passenger>>() {
+            @Override
+            public void onResponse(Call<List<Passenger>> call, Response<List<Passenger>> response) {
+                if (!response.isSuccessful()) {
+                    textView.setText("Code: " + response.code());
+                    return;
                 }
-            } else {
-                textView.setText("Error fetching data.");
+
+                List<Passenger> passengers = response.body();
+                StringBuilder formattedResult = new StringBuilder();
+                for (Passenger passenger : passengers) {
+                    formattedResult.append("ID: ").append(passenger.getId())
+                            .append(", Name: ").append(passenger.getName())
+                            .append(", Age: ").append(passenger.getAge())
+                            .append("\n");
+                }
+                textView.setText(formattedResult.toString());
             }
-        }
+
+            @Override
+            public void onFailure(Call<List<Passenger>> call, Throwable t) {
+                textView.setText(t.getMessage());
+                Log.e("RetrofitError", t.getMessage(), t);
+            }
+        });
     }
+
 }
