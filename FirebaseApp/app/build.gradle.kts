@@ -50,4 +50,6 @@ dependencies {
 
     implementation("com.google.firebase:firebase-analytics")
 
+    implementation("com.google.firebase:firebase-database")
+
 }
