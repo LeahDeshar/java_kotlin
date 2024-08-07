@@ -53,7 +53,6 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        recyclerView.setAdapter(myAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
 
@@ -74,9 +73,10 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
+        users = new ArrayList<>();
         myAdapter = new MyAdapter(this, users);
 
+        recyclerView.setAdapter(myAdapter);
 
 
 //        myAdapter.notifyDataSetChanged();
