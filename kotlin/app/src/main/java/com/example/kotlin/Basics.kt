@@ -48,6 +48,8 @@ class Basics {
     }
 
 
-
+fun objectOperation(){
+    
+}
 
 }
