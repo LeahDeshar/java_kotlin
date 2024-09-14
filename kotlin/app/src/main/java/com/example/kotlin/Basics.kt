@@ -79,8 +79,44 @@ class Basics {
         println("Perimeter is $perimeter")
 
     }
-    fun taskThree(){}
+    fun taskThree(){
+//        swap two numbers
+        val a = Scanner(System.`in`);
+        val b = Scanner(System.`in`);
+        println("Enter two numbers");
+        var x =a.nextInt()
+        var y=b.nextInt()
+        var temp = x
+        x = y
+        y = temp
+        println("After swapping x is $x and y is $y")
+    }
+    fun taskFour(){
+//        count the letter,spaces and digits and other characters in a sentence
+        val s = Scanner(System.`in`);
+        println("Enter a sentence");
+        val sentence =s.nextLine()
+        var letter = 0
+        var space = 0
+        var digit = 0
+        var other = 0
+        for (i in sentence){
+            if(i.isLetter()){
+                letter++
+            }else if(i.isDigit()){
+                digit++
+            }else if(i.isWhitespace()){
+                space++
+            }else{
+                other++
+            }
+        }
+        println("Letters: $letter")
+        println("Digits: $digit")
+        println("Spaces: $space")
+        println("Other characters: $other")
 
+    }
 
 }
 
