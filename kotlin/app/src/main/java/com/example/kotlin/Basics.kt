@@ -1,5 +1,7 @@
 package com.example.kotlin
 
+import java.util.Scanner
+
 class Basics {
     fun BasicOperation(){
         val message = "print message"
@@ -48,8 +50,37 @@ class Basics {
     }
 
 
-fun objectOperation(){
-    
-}
+//fun objectOperation(){
+//
+//}
+    fun operateOnNumbers(a: Int, b: Int, operation: (Int, Int) -> Int): Int {
+        return operation(a, b)
+    }
+
+    fun taskOne(){
+//    user input
+    val a = Scanner(System.`in`);
+    val b = Scanner(System.`in`);
+    println("Enter two numbers");
+    val x =a.nextInt()
+    val y=b.nextInt()
+    println(x / y)
+    print(x % y)
 
 }
+    fun taskTwo(){
+//        area and perimeter of circle
+        val r = Scanner(System.`in`);
+        println("Enter radius");
+        val radius =r.nextInt()
+        val area = 3.14 * radius * radius
+        val perimeter = 2 * 3.14 * radius
+        println("Area is $area")
+        println("Perimeter is $perimeter")
+
+    }
+    fun taskThree(){}
+
+
+}
+
