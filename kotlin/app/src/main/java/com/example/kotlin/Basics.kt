@@ -117,6 +117,16 @@ class Basics {
         println("Other characters: $other")
 
     }
-
+    fun taskFive(){
+//        program to reverse the string
+        val s = Scanner(System.`in`);
+        println("Enter a sentence");
+        val sentence =s.nextLine()
+        var reverse = ""
+        for (i in sentence.length-1 downTo 0){
+            reverse += sentence[i]
+        }
+        println("Reversed sentence: $reverse")
+    }
 }
 
