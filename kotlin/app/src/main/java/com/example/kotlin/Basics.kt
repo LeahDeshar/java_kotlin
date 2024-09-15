@@ -128,5 +128,30 @@ class Basics {
         }
         println("Reversed sentence: $reverse")
     }
+    fun taskSi(){
+//        program to multiply corresponding elements from two arrays
+        val a = Scanner(System.`in`);
+        val b = Scanner(System.`in`);
+        println("Enter the size of the arrays");
+        val size =a.nextInt()
+        val arr1 = IntArray(size)
+        val arr2 = IntArray(size)
+        println("Enter the elements of the first array");
+        for (i in 0 until size){
+            arr1[i] = b.nextInt()
+        }
+        println("Enter the elements of the second array");
+        for (i in 0 until size){
+            arr2[i] = b.nextInt()
+        }
+        val result = IntArray(size)
+        for (i in 0 until size){
+            result[i] = arr1[i] * arr2[i]
+        }
+        println("Resultant array is: ")
+        for (i in 0 until size){
+            print("${result[i]} ")
+        }
+    }
 }
 
