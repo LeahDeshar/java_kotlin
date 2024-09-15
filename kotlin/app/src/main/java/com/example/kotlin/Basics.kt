@@ -128,7 +128,7 @@ class Basics {
         }
         println("Reversed sentence: $reverse")
     }
-    fun taskSi(){
+    fun taskSix(){
 //        program to multiply corresponding elements from two arrays
         val a = Scanner(System.`in`);
         val b = Scanner(System.`in`);
@@ -151,6 +151,43 @@ class Basics {
         println("Resultant array is: ")
         for (i in 0 until size){
             print("${result[i]} ")
+        }
+    }
+    fun taskSeven(){
+//        program to count the numbers of even and odd in the array
+        val a = Scanner(System.`in`);
+        println("Enter the size of the array");
+        val size =a.nextInt()
+        val arr = IntArray(size)
+        println("Enter the elements of the array");
+        for (i in 0 until size){
+            arr[i] = a.nextInt()
+        }
+        var even = 0
+        var odd = 0
+        for (i in 0 until size){
+            if(arr[i] % 2 == 0){
+                even++
+            }else{
+                odd++
+            }
+        }
+        println("Number of even numbers: $even")
+        println("Number of odd numbers: $odd")
+    }
+    fun taskEight(){
+//        program that takes 3 numbers from user and find  the greatest among them
+        val a = Scanner(System.`in`);
+        println("Enter three numbers");
+        val x =a.nextInt()
+        val y =a.nextInt()
+        val z =a.nextInt()
+        if(x > y && x > z){
+            println("$x is the greatest")
+        }else if(y > x && y > z){
+            println("$y is the greatest")
+        }else{
+            println("$z is the greatest")
         }
     }
 }
