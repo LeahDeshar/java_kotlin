@@ -58,7 +58,7 @@ val randomNumbers = generateRandomNumber(6)
         val intent = Intent(Intent.ACTION_SEND)
         intent.type = "text/plain"
         intent.putExtra(Intent.EXTRA_SUBJECT, "$username generates these numbers")
-        intent.putExtra(Intent.EXTRA_TEXT, "The Lottery Numbers are: genNums")
+        intent.putExtra(Intent.EXTRA_TEXT, "The Lottery Numbers are: $genNums")
         val chooser = Intent.createChooser(intent, "Share this number using...")
         startActivity(chooser)
     }
