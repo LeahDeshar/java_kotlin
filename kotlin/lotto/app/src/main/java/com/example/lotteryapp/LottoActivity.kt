@@ -2,6 +2,7 @@ package com.example.lotteryapp
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
@@ -26,7 +27,8 @@ class LottoActivity : AppCompatActivity() {
 
         resView = findViewById(R.id.lottoView)
         share = findViewById(R.id.shareBtn)
-val randomNumbers = generateRandomNumber(6)
+    val randomNumbers = generateRandomNumber(6)
+        Log.d("randomNumbers", "generateRandomNumber: $randomNumbers")
         resView.text = randomNumbers
 
         var username = receiveUserName()
@@ -39,13 +41,12 @@ val randomNumbers = generateRandomNumber(6)
 
 
     fun generateRandomNumber(count:Int):String{
-        var randomNumbers = List(count){
+        val randomNumbers = List(count){
             (0..42).random()
-//            val random = Random()
-//            val ranNumber = random.nextInt(43)
+
 
         }
-        return randomNumbers.joinToString { " " }
+        return randomNumbers.joinToString(" ")
     }
 
     fun receiveUserName():String{
