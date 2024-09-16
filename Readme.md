@@ -6,8 +6,6 @@ Collection of mobile programming projects using Java and Kotlin.
 
 
 👇
-
-[//]: # attach image
-![img](o1.png)
+![img](o2.png)
 
 
