@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="@color/black" />
+<!--<gradient-->
+<!--    android:startColor="#FF0606"-->
+<!--    android:angle="45"-->
+<!--    android:type="linear"-->
+<!--    android:gradientRadius="1000"-->
+<!--    android:centerX="0.5"-->
+<!--    android:centerY="0.5"-->
+<!--    />-->
+
+    <gradient
+        android:startColor="#FF0606"
+        android:endColor="@color/black"
+        android:angle="45"
+        android:type="linear"
+        android:gradientRadius="1000"
+        android:centerX="0.5"
+        android:centerY="0.5"
+        />
+    <corners android:radius="20dp" />
+
+
+</shape>
