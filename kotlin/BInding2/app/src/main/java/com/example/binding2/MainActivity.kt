@@ -23,9 +23,10 @@ class MainActivity : AppCompatActivity() {
         }
 
 
-        var user = User("sai", 25);
+        val user = User("sai", 25);
         binding.user = user;
 
-//        binding.textView.text =  user.name + " " + user.age.toString();
+        binding.clickHandler = ViewClickHandler(this,user);
+
     }
 }
