@@ -1,5 +1,6 @@
 package com.example.binding2
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -27,6 +28,15 @@ class MainActivity : AppCompatActivity() {
         user.name = "John Doe";
 
         binding.user = user;
+
+
+//        when clicked on button go to second activity
+        binding.button.setOnClickListener {
+            startActivity(Intent(this, SecondActivity::class.java))
+
+        }
+
+
 
 //        binding.clickHandler = ViewClickHandler(this,user);
 

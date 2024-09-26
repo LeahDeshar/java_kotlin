@@ -11,10 +11,13 @@ class User: BaseObservable() {
             notifyPropertyChanged(BR.name)
         }
 
-//    @get:Bindable
-//    val age:Int = 0
-//
-//
+    @Bindable
+    var age:Int = 0
+        set(value){
+            field = value
+            notifyPropertyChanged(BR.age)
+        }
+
 //    val ageString: String
 //        get() = age.toString()
 }
