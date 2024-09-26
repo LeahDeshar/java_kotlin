@@ -23,10 +23,12 @@ class MainActivity : AppCompatActivity() {
         }
 
 
-        val user = User("sai", 25);
+        val user = User();
+        user.name = "John Doe";
+
         binding.user = user;
 
-        binding.clickHandler = ViewClickHandler(this,user);
+//        binding.clickHandler = ViewClickHandler(this,user);
 
     }
 }
