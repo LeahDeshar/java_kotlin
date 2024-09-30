@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout  xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
@@ -9,7 +10,6 @@
     </data>
 <androidx.constraintlayout.widget.ConstraintLayout
 
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -39,7 +39,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="92dp"
         android:hint="Enter your name"
-        android:textColorHint="@color/white"
+        android:textColor="@color/white"
+        android:textColorHint="#928F8F"
         app:layout_constraintEnd_toStartOf="@+id/saveBtn"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/title" />
@@ -64,7 +65,8 @@
         android:layout_marginTop="72dp"
         android:text="@={contactViewModel.inputEmail}"
         android:hint="Enter your email"
-        android:textColorHint="@color/white"
+        android:textColorHint="#928F8F"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toStartOf="@+id/saveBtn"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/editText" />
@@ -82,5 +84,20 @@
 
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/saveBtn" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.499" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

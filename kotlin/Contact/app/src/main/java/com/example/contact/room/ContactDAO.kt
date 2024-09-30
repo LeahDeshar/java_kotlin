@@ -2,7 +2,7 @@ package com.example.contact.room
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
-
+@Dao
 interface ContactDAO {
 
     @Insert

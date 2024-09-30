@@ -103,11 +103,11 @@ class ContactViewModel(private val repository: ContactRepository) :ViewModel(),O
 
 
     override fun addOnPropertyChangedCallback(callback: Observable.OnPropertyChangedCallback?) {
-        TODO("Not yet implemented")
+
     }
 
     override fun removeOnPropertyChangedCallback(callback: Observable.OnPropertyChangedCallback?) {
-        TODO("Not yet implemented")
+
     }
 
 
