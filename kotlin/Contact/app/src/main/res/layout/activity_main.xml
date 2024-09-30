@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout  xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="contactViewModel"
+            type="com.example.contact.viewmodel.ContactViewModel" />
+    </data>
 <androidx.constraintlayout.widget.ConstraintLayout
 
     xmlns:tools="http://schemas.android.com/tools"
@@ -28,6 +34,7 @@
 
     <EditText
         android:id="@+id/editText"
+        android:text="@={contactViewModel.inputName}"
         android:layout_width="243dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="92dp"
@@ -42,10 +49,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="140dp"
+        android:onClick="@{()->contactViewModel.saveOrUpdate()}"
 
         android:layout_marginEnd="40dp"
         android:backgroundTint="@color/black"
-        android:text="Save"
+        android:text="@={contactViewModel.saveOrUpdateButtonText}"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -54,6 +62,7 @@
         android:layout_width="243dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="72dp"
+        android:text="@={contactViewModel.inputEmail}"
         android:hint="Enter your email"
         android:textColorHint="@color/white"
         app:layout_constraintEnd_toStartOf="@+id/saveBtn"
@@ -65,10 +74,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="72dp"
+        android:onClick="@{()->contactViewModel.clearAllOrDelete()}"
 
         android:layout_marginEnd="24dp"
         android:backgroundTint="@color/black"
-        android:text="Clear ALl"
+        android:text="@={contactViewModel.clearAllOrDeleteButtonText}"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/saveBtn" />
 </androidx.constraintlayout.widget.ConstraintLayout>
